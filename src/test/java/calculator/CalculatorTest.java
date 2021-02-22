@@ -33,7 +33,7 @@ public class CalculatorTest {
 		@Test
 		public void testLogarithm() {
 			double a = 1;
-	        double expectedResult = 0;
+	        double expectedResult = 2;
 	        double result = calculator.Logarithm(a);
 	        Assert.assertEquals(expectedResult, result, 0);
 		}

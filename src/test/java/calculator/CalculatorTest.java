@@ -17,7 +17,7 @@ public class CalculatorTest {
 	    public void testSquareRoot() {
 	        double a = 9.0;
 
-	        double expectedResult = 3.0;
+	        double expectedResult = 5.0;
 	        double result = calculator.SquareRoot(a);
 	        Assert.assertEquals(expectedResult, result, 0);
 	    }

@@ -18,6 +18,11 @@ pipeline {
                  //git 'https://github.com/ParijatMoulik/Scientific_Calculator.git'
                  sh 'mvn test'
              }
+             post{
+                always {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                }
+             }
          }
     }
 }

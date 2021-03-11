@@ -30,12 +30,12 @@ pipeline {
              }
          }
 
-//          stage('Step 4 Docker_Image')
-//           {
-//               steps {
-//                     imageName = docker.build "jerry11/devopscalculator"
-//               }
-//           }
+         stage('Step 4 Docker_Image')
+          {
+              steps {
+                    imageName = docker.build "jerry11/devopscalculator"
+              }
+          }
 //
 //          stage('Step 5 Push Docker Image')
 //         {

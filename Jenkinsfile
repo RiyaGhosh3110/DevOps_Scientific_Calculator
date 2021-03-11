@@ -10,7 +10,8 @@ pipeline {
          stage('Step 2 Maven') {
             steps {
                 //git 'https://github.com/ParijatMoulik/Scientific_Calculator.git'
-                sh 'mvn clean compile'
+//                 sh 'mvn clean compile'
+                 sh 'mvn clean install'
             }
         }
          stage('Step 3 Test') {

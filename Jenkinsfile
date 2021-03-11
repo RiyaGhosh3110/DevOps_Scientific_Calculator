@@ -33,7 +33,7 @@ pipeline {
          stage('Step 4 Docker_Image')
           {
               steps {
-                    imageName = docker.build //"jerry11/devopscalculator"
+                    imageName = docker.build "jerry11/devopscalculator:latest"
               }
           }
 //

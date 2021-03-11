@@ -33,20 +33,22 @@ pipeline {
          stage('Step 4 Docker_Image')
           {
               steps {
+                  script {
                     imageName = docker.build "jerry11/devopscalculator:latest"
+                    }
               }
           }
-//
-//          stage('Step 5 Push Docker Image')
-//         {
-//             steps {
-//                 script{
-//                   docker.withRegistry('', 'jenkins-docker') {
-//                        imageName.push()
-//                   }
-//                 }
-//             }
-//         }
+
+         stage('Step 5 Push Docker Image')
+        {
+            steps {
+                script{
+                  docker.withRegistry('', 'jenkins-docker') {
+                       imageName.push()
+                  }
+                }
+            }
+        }
     }
 }
 

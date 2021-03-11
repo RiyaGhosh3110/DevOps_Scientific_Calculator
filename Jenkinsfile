@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        imageName = ""
+    }
     stages {
         stage('Step 1 Git') {
             steps {
@@ -14,7 +17,8 @@ pipeline {
                  sh 'mvn clean install'
             }
         }
-         stage('Step 3 Test') {
+         stage('Step 3 Test')
+         {
              steps {
                  //git 'https://github.com/ParijatMoulik/Scientific_Calculator.git'
                  sh 'mvn test'
@@ -25,6 +29,24 @@ pipeline {
                 }
              }
          }
+
+         stage('Step 4 Docker_Image')
+          {
+              steps {
+                    imageName = docker.build "jerry11/devopscalculator:latest"
+              }
+
+          }
+         stage('Step 5 Push Docker Image')
+        {
+            steps {
+                script{
+                  docker.withRegistry('', 'jenkins-docker')
+                  imageName.push()
+                }
+            }
+
+        }
     }
 }
 

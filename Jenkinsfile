@@ -50,7 +50,7 @@ pipeline {
             }
         }
         stage('Step 6 Ansible'){
-            Steps{
+            steps{
                 ansiblePlaybook becomeUser: null, colorized: true, disableHostKeyChecking: true, installation: 'Ansible', inventory: 'deploy-docker/inventory', playbook: 'deploy-docker/deploy-image.yml', sudoUser: null
             }
         }

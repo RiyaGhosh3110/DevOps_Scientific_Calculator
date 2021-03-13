@@ -1,7 +1,13 @@
 package calculator;
 import java.util.*;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class App
 {
+    private static final Logger logger = LogManager.getLogger(Calculator.class);
+
     public static void main(String args[])
     {
         int choice, flag=0;
@@ -16,6 +22,7 @@ public class App
                 flag = 1;
                 System.out.println("Invalid choice, exiting\n");
             }
+
             else if (choice>=1 && choice<=3) {
                 System.out.println("Enter the number");
                 num1 = scan.nextDouble();
@@ -46,16 +53,25 @@ public class App
     }
     
     static double SquareRoot(double a) {
-    	return Math.sqrt(a);
+        logger.info("[SQUAREROOT] - " + a);
+        double result =Math.sqrt(a);
+        logger.info("[RESULT - SQUAREROOT] - " + result);
+        return result;
     }
     static double Factorial(double a) {
 
     	return (a == 1 || a == 0) ? 1 : a * Factorial(a - 1);
     }
     static double Logarithm(double a) {
-    	return Math.log(a);
+        logger.info("[LOGARITHM] - " + a);
+        double result =Math.log(a);
+        logger.info("[RESULT - LOGARITHM] - " + result);
+        return result;
     }
     static double Power(double a, double b) {
-    	return Math.pow(a, b);
+        logger.info("[POWER] - " + a + " "+b);
+        double result =Math.pow(a,b);
+        logger.info("[RESULT - POWER] - " + result);
+        return result;
     }
 }

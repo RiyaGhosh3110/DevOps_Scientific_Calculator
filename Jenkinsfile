@@ -43,7 +43,7 @@ pipeline {
         {
             steps {
                 script{
-                  docker.withRegistry('', 'jenkins-docker') {
+                  docker.withRegistry('', 'docker-credentials') {
                        imageName.push()
                   }
                 }
